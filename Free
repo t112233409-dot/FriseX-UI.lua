@@ -1,12 +1,21 @@
--- Carrega Rayfield UI
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local LocalPlayer = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
-local Lighting = game:GetService("Lighting")
-local UserInputService = game:GetService("UserInputService")
+local Window = Rayfield:CreateWindow({
+    Name = "Lumin Hub | Mind Edition",
+    LoadingTitle = "Inicializando...",
+    LoadingSubtitle = "Powered by Rayfield",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "LuminHub",
+        FileName = "Settings"
+    },
+    Discord = {
+        Enabled = false
+    },
+    KeySystem = false,
+})
+
+local TabESP = Window:CreateTab("ESP & Hitbox", 4483362458)
 
 -- Config geral
 local Config = {
@@ -442,8 +451,6 @@ RunService.RenderStepped:Connect(function()
 end)
 
 -- Interface Rayfield
-
-local TabESP = Window:CreateTab("ESP & Hitbox", 4483362458)
 
 -- Hitbox controls
 TabESP:CreateToggle({
